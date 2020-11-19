@@ -131,4 +131,5 @@ dmypy.json
 # IDE
 .vscode/
 
-credentials.txt
+credentials.json
+token.pickle
