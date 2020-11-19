@@ -2,6 +2,14 @@
 
 Periodically check 原價屋 for updated Radeon RX6800XT availability status.
 
+
+## emailer setup
+
+https://developers.google.com/gmail/api/quickstart/python
+
+https://developers.google.com/gmail/api/guides/sending
+
+
 ## Info
 - url: http://coolpc.com.tw/eachview.php?IGrp=12
 - css-selector: `.main > span:nth-child(2) > div:nth-child(2)`
