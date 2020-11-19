@@ -52,12 +52,18 @@ def send_message(service, user_id, message):
         print(f'An error occurred: {e}')
 
 
-def main():
-    """Shows basic usage of the Gmail API."""
+def init_service():
+    '''Must run this function at least once.
+    It'll launch a browser window for authorization. When done, a
+    `token.pickle` file will be created in your working dir.
+    credentials.json should be available in your working dir
+    before calling this function.
+    
+    The file `token.pickle` stores the user's access and refresh tokens,
+    and is created automatically when the authorization flow completes
+    for the first time.'''
+
     creds = None
-    # The file token.pickle stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
     if os.path.exists('token.pickle'):
         with open('token.pickle', 'rb') as token:
             creds = pickle.load(token)
@@ -74,10 +80,16 @@ def main():
             pickle.dump(creds, token)
 
     service = build('gmail', 'v1', credentials=creds)
+    return service
 
-    # Call the Gmail API
+
+def main():
+    service = init_service()
+
+    # Send email
     m = create_message('sender@gmail.com', 'receiver@gmail.com', 'subject', 'hello world')
     send_message(service, 'me', m)
+
 
 if __name__ == '__main__':
     main()
