@@ -15,7 +15,9 @@ elems = soup.find_all(attrs={'class': 't'})
 
 for e in elems:
     if '6800xt' in e.text.lower():
-        if '沒貨' not in e.text and '售完' not in e.text:
+        if ('沒貨' not in e.text
+                and '售完' not in e.text
+                and '缺貨' not in e.text):
             # Notify
             print('AVAILABLE!')
         else:

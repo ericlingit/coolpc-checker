@@ -24,7 +24,7 @@ https://developers.google.com/gmail/api/guides/sending
 - title includes: rx6800xt
 
 - notify when:
-    - '沒貨' not in title, and '售完' not in title
+    - '沒貨', '售完', '缺貨' not in title
     - show updated title
     - send notification email (include old+new title, time)
     - break loop
